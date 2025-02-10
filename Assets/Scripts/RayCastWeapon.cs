@@ -8,11 +8,14 @@ public class RayCastWeapon : MonoBehaviour {
 	public int damage = 40;
 	public GameObject impactEffect;
 	public LineRenderer lineRenderer;
+	public AudioClip shootSound;
+	public AudioSource audioSource;
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown(KeyCode.Return))
 		{
+			audioSource.PlayOneShot(shootSound);
 			StartCoroutine(Shoot());
 		}
 	}

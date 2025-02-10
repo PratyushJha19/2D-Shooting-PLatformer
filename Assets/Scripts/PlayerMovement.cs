@@ -13,6 +13,9 @@ public class PlayerMovement : MonoBehaviour {
 	bool jump = false;
 	bool crouch = false;
 
+	public AudioSource audioSource;
+	public AudioClip jumpSound;
+
 	// Update is called once per frame
 	void Update () {
 
@@ -22,6 +25,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W))
 		{
+			audioSource.PlayOneShot(jumpSound);
 			jump = true;
 			animator.SetBool("IsJumping", true);
 		}
